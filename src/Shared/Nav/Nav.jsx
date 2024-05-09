@@ -22,7 +22,7 @@ const Nav = () => {
     <div
       className={`navbar bg-white/[.2] relative z-50 container mx-auto h-24 ${
         location.pathname === '/'
-          ? 'text-white rounded-2xl absolute top-12'
+          ? 'text-white lg:rounded-2xl absolute lg:top-12'
           : 'text-black'
       }`}
     >
@@ -66,7 +66,7 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={'/login'} className="btn bg-[#FFBD2F] text-white">
+        <Link to={'/login'} className="btn bg-[#ff923e] text-white">
           Login
         </Link>
       </div>

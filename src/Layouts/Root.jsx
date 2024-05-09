@@ -4,7 +4,7 @@ import Footer from '../Shared/Footer/Footer';
 
 const Root = () => {
   return (
-    <div className="font-lato">
+    <div className="font-roboto">
       <Nav></Nav>
       <Outlet></Outlet>
       <Footer></Footer>
