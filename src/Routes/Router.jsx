@@ -3,6 +3,7 @@ import Root from '../Layouts/Root';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import AllFoods from '../Pages/AllFoods/AllFoods';
+import FoodDetails from '../Pages/FoodDetails/FoodDetails';
 
 const Router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ const Router = createBrowserRouter([
       {
         path: '/allFoods',
         element: <AllFoods></AllFoods>,
+      },
+      {
+        path: '/foodDetails/:id',
+        element: <FoodDetails></FoodDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/foodDetails/${params.id}`),
       },
     ],
   },
