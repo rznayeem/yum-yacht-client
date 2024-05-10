@@ -12,7 +12,7 @@ const TopFoods = () => {
   }, []);
 
   return (
-    <div className="py-16">
+    <div className="py-16 bg-[url('https://yummi-theme.myshopify.com/cdn/shop/files/bg-img-1_1.png?v=1614334735&width=1920')]">
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center space-y-6 my-10">
           <h1 className="font-mercellus text-5xl font-bold">Our Top Foods</h1>
