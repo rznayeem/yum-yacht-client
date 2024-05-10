@@ -59,6 +59,18 @@ const FoodDetails = () => {
               {foodCategory}
             </h3>
           </div>
+          <div>
+            <h3>
+              <span className="text-xl mr-8 font-bold">Made By:</span>{' '}
+              {userName}
+            </h3>
+          </div>
+          <div>
+            <h3>
+              <span className="text-xl mr-14 font-bold">Origin:</span>{' '}
+              {foodOrigin}
+            </h3>
+          </div>
           <div className="max-w-[310px]">
             <div className="flex justify-between mb-5">
               <button className="btn bg-[#FF923E] hover:bg-[#F76F2A] text-white font-bold">
