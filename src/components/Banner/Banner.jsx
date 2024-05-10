@@ -59,7 +59,7 @@ const Banner = () => {
         {/* arrow right */}
         <button
           onClick={nextSlider}
-          className="absolute top-1/2 z-50 right-3  flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
+          className="absolute top-1/2 z-[50] right-3  flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
         >
           <svg
             className="w-4 h-4 md:w-6 md:h-6 icon"

@@ -1,9 +1,12 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+import { IoPersonSharp } from 'react-icons/io5';
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
   const links = (
     <>
       <li className="bg-transparent hover:bg-transparent border-none outline-none shadow-none">
@@ -66,9 +69,71 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={'/login'} className="btn bg-[#ff923e] text-white">
-          Login
-        </Link>
+        {user ? (
+          <div className="dropdown  dropdown-hover dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn m-1 w-auto h-auto bg-transparent rounded-full border-none shadow-none hover:bg-transparent"
+            >
+              <div>
+                <div className="avatar">
+                  <div className="w-10 rounded-full ring ring-[#FF5956] ring-offset-base-100 ring-offset-2">
+                    <img
+                      src={
+                        user?.photoURL ||
+                        'https://i.ibb.co/wMhfdTN/user-profile-icon.png'
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[60] space-y-5 bg-[#FF923E]/[.8] border-2 border-orange-300 menu p-2 shadow rounded-box lg:w-[330px] w-[250px]"
+            >
+              <div className="avatar justify-center mt-5">
+                <div className="w-10 rounded-full ring ring-[#FF5956] ring-offset-base-100 ring-offset-2">
+                  <img
+                    src={
+                      user?.photoURL ||
+                      'https://i.ibb.co/wMhfdTN/user-profile-icon.png'
+                    }
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center text-2xl">
+                <h3 className="flex items-center gap-3">
+                  <IoPersonSharp /> {user?.displayName || 'N/A'}
+                </h3>
+              </div>
+              <div className="flex flex-col p-5 ">
+                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                  My added food items
+                </Link>
+                <hr />
+                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                  Add a food item
+                </Link>
+                <hr />
+                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                  My order list
+                </Link>
+                <hr />
+              </div>
+              <li>
+                <Link to={'/login'} onClick={() => logOut()}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to={'/login'} className="btn bg-[#ff923e] text-white">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
