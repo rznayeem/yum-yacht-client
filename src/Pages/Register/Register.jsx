@@ -56,7 +56,7 @@ const Register = () => {
     <div>
       <div className="">
         <div
-          className="flex items-center justify-center text-white h-96"
+          className="flex items-center justify-center text-white h-64"
           style={{
             backgroundImage: `url(${header})`,
           }}
@@ -170,7 +170,7 @@ const Register = () => {
                       required
                     />
                     <span
-                      className="absolute right-4 top-[55%] text-2xl cursor-pointer"
+                      className="absolute right-4 top-[73%] -translate-y-1/2 text-2xl cursor-pointer"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <FaEye /> : <FaEyeSlash />}
