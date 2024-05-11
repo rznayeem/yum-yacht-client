@@ -30,7 +30,7 @@ const TopFoods = () => {
         <div className="flex justify-center mt-10">
           <Link
             to={'/allFoods'}
-            className="btn bg-[#ff923e] text-white font-semibold text-xl hover:bg-[#ba6a2e]"
+            className="btn bg-[#ff923e] text-white font-semibold text-xl hover:bg-[#F76F2A]"
           >
             See All Foods
           </Link>
