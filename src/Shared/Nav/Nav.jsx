@@ -109,15 +109,24 @@ const Nav = () => {
                 </h3>
               </div>
               <div className="flex flex-col p-5 ">
-                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                <Link
+                  to={'/myList'}
+                  className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white"
+                >
                   My added food items
                 </Link>
                 <hr />
-                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                <Link
+                  to={'/addFood'}
+                  className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white"
+                >
                   Add a food item
                 </Link>
                 <hr />
-                <Link className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white">
+                <Link
+                  to={'/myOrder'}
+                  className="border-b p-2 btn h-auto w-auto shadow-none outline-none bg-transparent hover:bg-transparent border-none justify-start text-white"
+                >
                   My order list
                 </Link>
                 <hr />

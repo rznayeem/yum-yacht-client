@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const Purchase = () => {
   const { user } = useContext(AuthContext);
@@ -10,18 +12,18 @@ const Purchase = () => {
 
   const [updatedQuantity, setUpdatedQuantity] = useState(quantity);
 
-  // const [currentDate, setCurrentDate] = useState(null);
-
   const handleOrder = e => {
     e.preventDefault();
     const date = Date.now();
     const currentDate = new Date(date).toString();
     console.log(currentDate);
     const email = e.target.email.value;
-    const userName = e.target.email.value;
+    const userName = e.target.name.value;
     const newQuantity = parseFloat(e.target.newQuantity.value);
-    if (newQuantity > updatedQuantity || newQuantity === 0) {
-      return alert('tututut');
+    if (newQuantity > updatedQuantity) {
+      return toast.error('You can not buy more than quantity');
+    } else if (newQuantity <= 0) {
+      return toast.error('Sorry product is unavailable');
     }
     const remainingQuantity = updatedQuantity - newQuantity;
 
@@ -36,11 +38,32 @@ const Purchase = () => {
       date: currentDate,
       foodId: _id,
     };
-    axios.post('http://localhost:5000/purchase', purchasedData).then(res => {
-      if (res.data.acknowledged) {
-        setUpdatedQuantity(remainingQuantity);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(result => {
+      if (result.isConfirmed) {
+        axios
+          .post('http://localhost:5000/purchase', purchasedData)
+          .then(res => {
+            if (res.data.acknowledged) {
+              setUpdatedQuantity(remainingQuantity);
+              Swal.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+              }).then(function () {
+                location.reload();
+              });
+            }
+            console.log(res.data);
+          });
       }
-      console.log(res.data);
     });
     console.log(updatedQuantity);
   };
@@ -96,7 +119,7 @@ const Purchase = () => {
               />
             </div>
             <div className="grid grid-cols-2 gap-6"></div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Food Name</span>
@@ -105,6 +128,32 @@ const Purchase = () => {
                   type="text"
                   name="location"
                   defaultValue={foodName}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              {/* <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Current Date</span>
+                </label>
+                <input
+                  type="date"
+                  name="seasonality"
+                  defaultValue={``}
+                  className="input input-bordered"
+                  required
+                />
+              </div> */}
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Quantity</span>
+                </label>
+                <input
+                  type="number"
+                  name="newQuantity"
+                  defaultValue={updatedQuantity}
                   className="input input-bordered"
                   required
                 />
@@ -122,34 +171,10 @@ const Purchase = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Quantity</span>
-                </label>
-                <input
-                  type="number"
-                  name="newQuantity"
-                  defaultValue={updatedQuantity}
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              {/* <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Current Date</span>
-                </label>
-                <input
-                  type="text"
-                  name="seasonality"
-                  defaultValue={currentDate}
-                  className="input input-bordered"
-                  required
-                />
-              </div> */}
-            </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#FF5956]">Order Now</button>
+              <button className="btn bg-[#FF923E] text-white text-xl font-semibold">
+                Confirm Your Order
+              </button>
             </div>
           </form>
           <div className="w-1/2 my-auto bg-[#FAF0EA] py-20 shadow-md rounded-3xl space-y-12">

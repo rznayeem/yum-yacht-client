@@ -46,7 +46,21 @@ const Login = () => {
     googleLogin()
       .then(result => {
         const user = result.user;
+        const userData = {
+          email: user.email,
+          name: user.displayName,
+          photo: user.photoURL,
+        };
         if (user) {
+          fetch('http://localhost:5000/user', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+          })
+            .then(res => res.json())
+            .then(data => console.log(data));
           toast.success('You have successfully logged in');
           navigate(location?.state ? location.state : '/');
         }
