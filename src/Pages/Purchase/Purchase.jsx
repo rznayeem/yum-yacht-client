@@ -6,11 +6,11 @@ import axios from 'axios';
 const Purchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
-  // const [purchasedItem, setPurchasedItem] = useState([]);
+  const { _id, foodImage, foodName, foodCategory, price, quantity } = foodData;
+
+  const [updatedQuantity, setUpdatedQuantity] = useState(quantity);
 
   // const [currentDate, setCurrentDate] = useState(null);
-
-  const { foodImage, foodName, foodCategory, price, quantity } = foodData;
 
   const handleOrder = e => {
     e.preventDefault();
@@ -19,6 +19,12 @@ const Purchase = () => {
     console.log(currentDate);
     const email = e.target.email.value;
     const userName = e.target.email.value;
+    const newQuantity = parseFloat(e.target.newQuantity.value);
+    if (newQuantity > updatedQuantity || newQuantity === 0) {
+      return alert('tututut');
+    }
+    const remainingQuantity = updatedQuantity - newQuantity;
+
     const purchasedData = {
       email,
       userName,
@@ -26,13 +32,17 @@ const Purchase = () => {
       foodImage,
       foodCategory,
       price,
-      quantity,
+      quantity: newQuantity,
       date: currentDate,
+      foodId: _id,
     };
-    axios
-      .post('http://localhost:5000/purchase', purchasedData)
-      .then(res => console.log(res.data));
-    // console.log(purchasedItem);
+    axios.post('http://localhost:5000/purchase', purchasedData).then(res => {
+      if (res.data.acknowledged) {
+        setUpdatedQuantity(remainingQuantity);
+      }
+      console.log(res.data);
+    });
+    console.log(updatedQuantity);
   };
 
   return (
@@ -105,7 +115,7 @@ const Purchase = () => {
                 </label>
                 <input
                   type="text"
-                  name="description"
+                  name="price"
                   defaultValue={'$' + price}
                   className="input input-bordered"
                   required
@@ -119,8 +129,8 @@ const Purchase = () => {
                 </label>
                 <input
                   type="number"
-                  name="cost"
-                  defaultValue={quantity}
+                  name="newQuantity"
+                  defaultValue={updatedQuantity}
                   className="input input-bordered"
                   required
                 />
