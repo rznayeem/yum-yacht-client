@@ -4,6 +4,7 @@ import header from '../../assets/Breadcrump-Image.jpg';
 const FoodDetails = () => {
   const food = useLoaderData();
   const {
+    _id,
     foodImage,
     foodName,
     foodCategory,
@@ -80,9 +81,12 @@ const FoodDetails = () => {
                 ADD TO WISHLIST
               </button>
             </div>
-            <button className="btn btn-block bg-[#FF923E] hover:bg-[#F76F2A] text-white font-bold">
+            <Link
+              to={`/purchase/${_id}`}
+              className="btn btn-block bg-[#FF923E] hover:bg-[#F76F2A] text-white font-bold"
+            >
               PURCHASE{' '}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const AllFoodsCard = ({ food }) => {
@@ -34,6 +35,17 @@ const AllFoodsCard = ({ food }) => {
       </div>
     </div>
   );
+};
+
+AllFoodsCard.propTypes = {
+  food: PropTypes.shape({
+    _id: PropTypes.any,
+    foodCategory: PropTypes.any,
+    foodImage: PropTypes.any,
+    foodName: PropTypes.any,
+    price: PropTypes.any,
+    quantity: PropTypes.any,
+  }),
 };
 
 export default AllFoodsCard;
