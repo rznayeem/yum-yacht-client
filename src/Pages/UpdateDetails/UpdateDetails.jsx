@@ -1,11 +1,15 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import header from '../../assets/gallery.png';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import axios from 'axios';
+import CreatableSelect from 'react-select/creatable';
 
 const UpdateDetails = () => {
   const loaderData = useLoaderData();
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  let newIngredients = [];
+
   const { user } = useContext(AuthContext);
   const {
     _id,
@@ -15,6 +19,7 @@ const UpdateDetails = () => {
     foodOrigin,
     foodImage,
     foodCategory,
+    description,
   } = loaderData;
 
   const handleUpdate = e => {
@@ -26,6 +31,12 @@ const UpdateDetails = () => {
     const category = form.category.value;
     const newQuantity = parseFloat(form.newQuantity.value);
     const newPrice = parseFloat(form.newQuantity.value);
+    const ingredients = newIngredients;
+    const makingProcedure = form.makingProcedure.value;
+    const description = {
+      ingredients,
+      makingProcedure,
+    };
 
     const updatedData = {
       foodName: name,
@@ -34,12 +45,22 @@ const UpdateDetails = () => {
       foodOrigin: origin,
       foodImage: photo,
       foodCategory: category,
+      description,
     };
     axios
       .patch(`http://localhost:5000/all-foods?id=${_id}`, updatedData)
       .then(res => console.log(res.data));
     console.log(updatedData);
   };
+
+  const handleIngredients = newValue => {
+    setSelectedOptions(newValue);
+  };
+  // console.log(selectedOptions);
+  for (const selectedOption of selectedOptions) {
+    const value = selectedOption.value;
+    newIngredients.push(value);
+  }
 
   return (
     <div>
@@ -162,6 +183,36 @@ const UpdateDetails = () => {
                 type="text"
                 name="newPrice"
                 defaultValue={'$' + price}
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <legend className="text-center text-white text-xl font-semibold">
+              Descriptions
+            </legend>
+            <label className="label">
+              <span className="label-text text-white">Ingredients</span>
+            </label>
+            <CreatableSelect
+              isMulti
+              name="ingredients"
+              onChange={handleIngredients}
+              options={[]}
+              value={selectedOptions}
+              isClearable={true}
+              isSearchable={true}
+              placeholder={description.ingredients}
+            />
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Making procedure</span>
+              </label>
+              <input
+                type="text"
+                name="makingProcedure"
+                defaultValue={description.makingProcedure}
                 className="input input-bordered"
                 required
               />
