@@ -23,7 +23,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`navbar bg-white/[.2] relative z-50 container mx-auto h-24 ${
+      className={`navbar bg-white/[.2] backdrop-blur-sm relative z-50 container mx-auto h-24 ${
         location.pathname === '/'
           ? 'text-white lg:rounded-2xl absolute lg:top-12'
           : 'text-black'
@@ -91,7 +91,7 @@ const Nav = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[60] space-y-5 bg-[#FF923E]/[.8] border-2 border-orange-300 menu p-2 shadow rounded-box lg:w-[330px] w-[250px]"
+              className="dropdown-content z-[100] space-y-5 bg-[#FF923E]/[.8] border-2 border-orange-300 menu p-2 shadow rounded-box lg:w-[330px] w-[250px]"
             >
               <div className="avatar justify-center mt-5">
                 <div className="w-10 rounded-full ring ring-[#FF5956] ring-offset-base-100 ring-offset-2">

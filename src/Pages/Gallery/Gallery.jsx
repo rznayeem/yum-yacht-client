@@ -5,7 +5,6 @@ import axios from 'axios';
 import GalleryCard from './GalleryCard';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { CiMail } from 'react-icons/ci';
-import { SiSpringsecurity } from 'react-icons/si';
 
 const Gallery = () => {
   const [openModal, setOpenModal] = useState(false);
