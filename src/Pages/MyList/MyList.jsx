@@ -66,9 +66,11 @@ const MyList = () => {
                 <td>{food.foodCategory}</td>
                 <td>${food.price}</td>
                 <th>
-                  <button className="text-xl btn before:rounded-lg after:rounded-lg border-[#FF923E] hover:bg-[#F76F2A] before:absolute before:block before:bg-[#FF923E] before:inset-0 before:-z-10 bg-[#FF923E] text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-[#F76F2A] after:absolute relative inline-block">
-                    Update
-                  </button>
+                  <Link to={`/updateDetails/${food._id}`}>
+                    <button className="text-xl btn before:rounded-lg after:rounded-lg border-[#FF923E] hover:bg-[#F76F2A] before:absolute before:block before:bg-[#FF923E] before:inset-0 before:-z-10 bg-[#FF923E] text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-[#F76F2A] after:absolute relative inline-block">
+                      Update
+                    </button>
+                  </Link>
                 </th>
               </tr>
             ))}

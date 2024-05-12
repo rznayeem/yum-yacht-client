@@ -39,13 +39,12 @@ const Purchase = () => {
       foodId: _id,
     };
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Do you want to order this?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, Confirm my order!',
     }).then(result => {
       if (result.isConfirmed) {
         axios
@@ -54,8 +53,8 @@ const Purchase = () => {
             if (res.data.acknowledged) {
               setUpdatedQuantity(remainingQuantity);
               Swal.fire({
-                title: 'Deleted!',
-                text: 'Your file has been deleted.',
+                title: 'Success!',
+                text: 'Your order has been confirmed.',
                 icon: 'success',
               }).then(function () {
                 location.reload();
