@@ -42,7 +42,10 @@ const AddFood = () => {
     };
     console.log(updatedData);
     axios
-      .post(`http://localhost:5000/all-foods`, updatedData)
+      .post(
+        `https://assignment-11-yum-yacht-server.vercel.app/all-foods`,
+        updatedData
+      )
       .then(res => console.log(res.data));
     console.log(updatedData);
   };

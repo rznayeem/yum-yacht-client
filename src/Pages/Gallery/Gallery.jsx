@@ -16,7 +16,7 @@ const Gallery = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/feedback')
+      .get('https://assignment-11-yum-yacht-server.vercel.app/feedback')
       .then(res => setUsersFeedback(res.data));
   }, []);
 
@@ -31,7 +31,10 @@ const Gallery = () => {
       feedback,
     };
     axios
-      .post('http://localhost:5000/feedback', feedbackData)
+      .post(
+        'https://assignment-11-yum-yacht-server.vercel.app/feedback',
+        feedbackData
+      )
       .then(res => console.log(res.data));
   };
 

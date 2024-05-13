@@ -11,9 +11,12 @@ const MyList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myList?email=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://assignment-11-yum-yacht-server.vercel.app/myList?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then(res => setFoods(res.data));
   }, [user]);
 

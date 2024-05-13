@@ -57,15 +57,23 @@ const AuthProvider = ({ children }) => {
       setLoader(false);
       if (currentUser) {
         axios
-          .post('http://localhost:5000/jwt', userInfo, {
-            withCredentials: true,
-          })
+          .post(
+            'https://assignment-11-yum-yacht-server.vercel.app/jwt',
+            userInfo,
+            {
+              withCredentials: true,
+            }
+          )
           .then(res => console.log(res.data));
       } else {
         axios
-          .post('http://localhost:5000/logout', userInfo, {
-            withCredentials: true,
-          })
+          .post(
+            'https://assignment-11-yum-yacht-server.vercel.app/logout',
+            userInfo,
+            {
+              withCredentials: true,
+            }
+          )
           .then(res => console.log(res.data));
       }
     });

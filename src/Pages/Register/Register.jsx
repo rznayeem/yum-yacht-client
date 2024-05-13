@@ -34,7 +34,7 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        fetch('http://localhost:5000/user', {
+        fetch('https://assignment-11-yum-yacht-server.vercel.app/user', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

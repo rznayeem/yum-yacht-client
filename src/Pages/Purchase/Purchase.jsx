@@ -15,9 +15,12 @@ const Purchase = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/purchase/${id}?email=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://assignment-11-yum-yacht-server.vercel.app/purchase/${id}?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then(res => {
         console.log(res.data);
       });
@@ -61,9 +64,13 @@ const Purchase = () => {
     }).then(result => {
       if (result.isConfirmed) {
         axios
-          .post('http://localhost:5000/purchase', purchasedData, {
-            withCredentials: true,
-          })
+          .post(
+            'https://assignment-11-yum-yacht-server.vercel.app/purchase',
+            purchasedData,
+            {
+              withCredentials: true,
+            }
+          )
           .then(res => {
             if (res.data.acknowledged) {
               setUpdatedQuantity(remainingQuantity);

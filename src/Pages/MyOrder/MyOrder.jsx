@@ -14,9 +14,12 @@ const MyOrder = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myOrder?email=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://assignment-11-yum-yacht-server.vercel.app/myOrder?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then(res => setFoods(res.data));
   }, [user]);
 
@@ -31,17 +34,21 @@ const MyOrder = () => {
       confirmButtonText: 'Yes, cancel it!',
     }).then(result => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/myOrder?id=${id}`).then(res => {
-          if (res.data.deletedCount > 0) {
-            const remainingFood = foods.filter(food => food._id !== id);
-            setFoods(remainingFood);
-            Swal.fire({
-              title: 'Canceled!',
-              text: 'Your order has been canceled.',
-              icon: 'success',
-            });
-          }
-        });
+        axios
+          .delete(
+            `https://assignment-11-yum-yacht-server.vercel.app/myOrder?id=${id}`
+          )
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              const remainingFood = foods.filter(food => food._id !== id);
+              setFoods(remainingFood);
+              Swal.fire({
+                title: 'Canceled!',
+                text: 'Your order has been canceled.',
+                icon: 'success',
+              });
+            }
+          });
       }
     });
   };

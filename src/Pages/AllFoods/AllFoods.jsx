@@ -7,7 +7,7 @@ const AllFoods = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     axios
-      .get('http://localhost:5000/all-foods')
+      .get('https://assignment-11-yum-yacht-server.vercel.app/all-foods')
       .then(res => setFoods(res.data));
   }, []);
 
@@ -17,7 +17,9 @@ const AllFoods = () => {
     const search = form.search.value;
     console.log(search);
     axios
-      .get(`http://localhost:5000/search-foods?search=${search}`)
+      .get(
+        `https://assignment-11-yum-yacht-server.vercel.app/search-foods?search=${search}`
+      )
       .then(res => setFoods(res.data));
   };
 

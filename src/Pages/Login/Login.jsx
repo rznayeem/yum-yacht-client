@@ -16,9 +16,9 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate(location?.state || '/');
     }
-  }, [user, navigate]);
+  }, [user, navigate, location]);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -57,7 +57,7 @@ const Login = () => {
           photo: user.photoURL,
         };
         if (user) {
-          fetch('http://localhost:5000/user', {
+          fetch('https://assignment-11-yum-yacht-server.vercel.app/user', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -88,8 +88,6 @@ const Login = () => {
         console.log(error);
       });
   };
-
-  if (user || loader) return;
 
   return (
     <div>

@@ -30,7 +30,9 @@ const Router = createBrowserRouter([
         path: '/foodDetails/:id',
         element: <FoodDetails></FoodDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foodDetails/${params.id}`),
+          fetch(
+            `https://assignment-11-yum-yacht-server.vercel.app/foodDetails/${params.id}`
+          ),
       },
       {
         path: '/gallery',
@@ -52,9 +54,12 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foodDetails/${params.id}`, {
-            credentials: 'include',
-          }),
+          fetch(
+            `https://assignment-11-yum-yacht-server.vercel.app/foodDetails/${params.id}`,
+            {
+              credentials: 'include',
+            }
+          ),
       },
       {
         path: '/myList',
@@ -84,7 +89,9 @@ const Router = createBrowserRouter([
         path: '/updateDetails/:id',
         element: <UpdateDetails></UpdateDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foodDetails/${params.id}`),
+          fetch(
+            `https://assignment-11-yum-yacht-server.vercel.app/foodDetails/${params.id}`
+          ),
       },
     ],
   },

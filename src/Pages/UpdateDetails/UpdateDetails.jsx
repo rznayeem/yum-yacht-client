@@ -49,7 +49,10 @@ const UpdateDetails = () => {
       description,
     };
     axios
-      .patch(`http://localhost:5000/all-foods?id=${_id}`, updatedData)
+      .patch(
+        `https://assignment-11-yum-yacht-server.vercel.app/all-foods?id=${_id}`,
+        updatedData
+      )
       .then(res => console.log(res.data));
     console.log(updatedData);
   };
