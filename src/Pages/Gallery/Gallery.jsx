@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import header from '../../assets/gallery.png';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
@@ -12,6 +12,7 @@ const Gallery = () => {
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -72,7 +73,11 @@ const Gallery = () => {
             <div className="max-w-96 flex justify-center mx-auto">
               <button
                 onClick={() => {
-                  user ? setOpenModal(true) : navigate('/login');
+                  if (!user) {
+                    console.log(location);
+                    navigate('/login', { state: location.pathname });
+                  }
+                  setOpenModal(true);
                 }}
                 className="group relative flex w-full items-center rounded-lg border-2 border-[#FF923E] p-4 text-[#FF923E]"
               >

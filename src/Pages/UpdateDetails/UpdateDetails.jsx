@@ -201,6 +201,7 @@ const UpdateDetails = () => {
               onChange={handleIngredients}
               options={[]}
               value={selectedOptions}
+              // defaultInputValue={description.ingredients}
               isClearable={true}
               isSearchable={true}
               placeholder={description.ingredients}
