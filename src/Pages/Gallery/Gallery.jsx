@@ -7,6 +7,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { CiMail } from 'react-icons/ci';
 
 const Gallery = () => {
+  const [loader, setLoader] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [usersFeedback, setUsersFeedback] = useState([]);
   const { user } = useContext(AuthContext);
@@ -17,7 +18,10 @@ const Gallery = () => {
   useEffect(() => {
     axios
       .get('https://assignment-11-yum-yacht-server.vercel.app/feedback')
-      .then(res => setUsersFeedback(res.data));
+      .then(res => {
+        setUsersFeedback(res.data);
+        setLoader(false);
+      });
   }, []);
 
   const handleFeedback = e => {
@@ -210,9 +214,23 @@ const Gallery = () => {
           </div>
         </div>
         <div className="max-w-screen-xl mx-auto grid gap-8 py-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {usersFeedback.map((userFeedback, idx) => (
-            <GalleryCard key={idx} userFeedback={userFeedback}></GalleryCard>
-          ))}
+          {loader ? (
+            <>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-[400px] h-[270px]"></div>
+            </>
+          ) : (
+            usersFeedback.map((userFeedback, idx) => (
+              <GalleryCard key={idx} userFeedback={userFeedback}></GalleryCard>
+            ))
+          )}
         </div>
       </div>
     </div>

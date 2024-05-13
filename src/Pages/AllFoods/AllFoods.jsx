@@ -4,14 +4,19 @@ import axios from 'axios';
 import AllFoodsCard from './AllFoodsCard';
 
 const AllFoods = () => {
+  const [loader, setLoader] = useState(true);
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     axios
       .get('https://assignment-11-yum-yacht-server.vercel.app/all-foods')
-      .then(res => setFoods(res.data));
+      .then(res => {
+        setFoods(res.data);
+        setLoader(false);
+      });
   }, []);
 
   const handleSearch = e => {
+    setLoader(true);
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
@@ -20,7 +25,10 @@ const AllFoods = () => {
       .get(
         `https://assignment-11-yum-yacht-server.vercel.app/search-foods?search=${search}`
       )
-      .then(res => setFoods(res.data));
+      .then(res => {
+        setFoods(res.data);
+        setLoader(false);
+      });
   };
 
   return (
@@ -48,9 +56,86 @@ const AllFoods = () => {
           </form>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-xl lg:mx-auto md:mx-6 mx-6">
-          {foods.map((food, idx) => (
-            <AllFoodsCard key={idx} food={food}></AllFoodsCard>
-          ))}
+          {loader ? (
+            <>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 w-full">
+                <div className="skeleton h-72 w-full"></div>
+                <div className="p-6 space-y-4">
+                  <div className="skeleton mx-auto h-4 w-28"></div>
+                  <div className="flex gap-4">
+                    <div className="skeleton h-6 w-full"></div>
+                    <div className="skeleton h-6 w-full"></div>
+                  </div>
+                  <div className="skeleton mx-auto h-6 w-28"></div>
+                  <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+                </div>
+              </div>
+            </>
+          ) : (
+            foods.map((food, idx) => (
+              <AllFoodsCard key={idx} food={food}></AllFoodsCard>
+            ))
+          )}
         </div>
       </div>
     </div>

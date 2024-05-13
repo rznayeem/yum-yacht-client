@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentUser?.email || user?.email;
       const userInfo = { email: userEmail };
       setUser(currentUser);
-      setLoader(false);
+
       if (currentUser) {
         axios
           .post(
@@ -76,6 +76,7 @@ const AuthProvider = ({ children }) => {
           )
           .then(res => console.log(res.data));
       }
+      setLoader(false);
     });
     return () => {
       unsubscribe();
@@ -92,12 +93,12 @@ const AuthProvider = ({ children }) => {
     user,
     createUser,
     loader,
+    logOut,
     signIn,
     googleLogin,
-    githubLogin,
-    logOut,
-    updateUserData,
     setLoader,
+    githubLogin,
+    updateUserData,
   };
 
   return (

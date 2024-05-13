@@ -1,10 +1,27 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllFoodsCard = ({ food }) => {
+  const { loader } = useContext(AuthContext);
+
   const { _id, foodImage, foodCategory, foodName, price, quantity } = food;
 
-  return (
+  return loader ? (
+    <div className="flex flex-col gap-4 w-full">
+      <div className="skeleton h-72 w-full"></div>
+      <div className="p-6 space-y-4">
+        <div className="skeleton mx-auto h-4 w-28"></div>
+        <div className="flex gap-4">
+          <div className="skeleton h-6 w-full"></div>
+          <div className="skeleton h-6 w-full"></div>
+        </div>
+        <div className="skeleton mx-auto h-6 w-28"></div>
+        <div className="skeleton mx-auto h-10 max-w-40 w-full"></div>
+      </div>
+    </div>
+  ) : (
     <div className="rounded-3xl shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div className="relative">
         <img

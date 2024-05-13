@@ -36,7 +36,7 @@ const MyOrder = () => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `https://assignment-11-yum-yacht-server.vercel.app/myOrder?id=${id}`
+            `https://assignment-11-yum-yacht-server.vercel.app/myOrder?id=${id}&email=${user?.email}`
           )
           .then(res => {
             if (res.data.deletedCount > 0) {
