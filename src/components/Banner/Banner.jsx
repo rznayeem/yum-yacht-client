@@ -29,12 +29,12 @@ const Banner = () => {
   }, [nextSlider]);
 
   return (
-    <div className="w-full lg:h-[100vh] overflow-hidden -mt-24">
+    <div className="w-full lg:h-[100vh] overflow-hidden  relative -mt-24">
       {/* arrow left */}
-      <div className="h-60 lg:h-full  relative">
+      <div className="lg:h-[100vh] md:h-[100vh] sm:h-[50vh]">
         <button
           onClick={prevSlider}
-          className="absolute top-1/2 left-3 z-50 flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
+          className="absolute lg:top-1/2 md:top-1/2 top-1/4 left-3 z-50 flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
         >
           <svg
             className="w-4 h-4 md:w-6 md:h-6 icon"
@@ -59,7 +59,7 @@ const Banner = () => {
         {/* arrow right */}
         <button
           onClick={nextSlider}
-          className="absolute top-1/2 z-[50] right-3  flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
+          className="absolute lg:top-1/2 md:top-1/2 top-1/4 z-[50] right-3  flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
         >
           <svg
             className="w-4 h-4 md:w-6 md:h-6 icon"
@@ -104,13 +104,13 @@ const Banner = () => {
             <img
               key={slide}
               src={slide}
-              className="min-w-full bg-black/20 h-full object-cover"
+              className="min-w-full bg-black/20 h-[50vh] md:h-[100vh] lg:h-[100vh] object-cover"
               alt={`Slider - ${inx + 1}`}
             />
           ))}
         </div>
       </div>
-      <div className="lg:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 text-center lg:text-white p-7 lg:space-y-6 space-y-3">
+      <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 space-y-3">
         <h1 className="text-6xl font-semibold font-mercellus">
           Discover Taste Adventures with <br /> <span>Yum Yacht</span>
         </h1>
