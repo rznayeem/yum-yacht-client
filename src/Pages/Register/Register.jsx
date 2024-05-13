@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Lottie from 'lottie-react';
@@ -9,10 +9,16 @@ import toast from 'react-hot-toast';
 import header from '../../assets/Breadcrump-Image.jpg';
 
 const Register = () => {
-  const { createUser, updateUserData } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { createUser, updateUserData, user, loader } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const {
     register,
@@ -51,6 +57,8 @@ const Register = () => {
         }
       });
   };
+
+  if (user || loader) return;
 
   return (
     <div>

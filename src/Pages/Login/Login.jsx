@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 import Lottie from 'lottie-react';
@@ -9,15 +9,18 @@ import toast from 'react-hot-toast';
 import header from '../../assets/Breadcrump-Image.jpg';
 
 const Login = () => {
-  const { signIn, googleLogin, githubLogin, setLoader } =
-    useContext(AuthContext);
-
-  const [showPassword, setShowPassword] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
+  const { signIn, googleLogin, githubLogin, setLoader, loader, user } =
+    useContext(AuthContext);
 
-  console.log(location);
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -85,6 +88,8 @@ const Login = () => {
         console.log(error);
       });
   };
+
+  if (user || loader) return;
 
   return (
     <div>

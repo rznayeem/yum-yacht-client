@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import header from '../../assets/gallery.png';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';

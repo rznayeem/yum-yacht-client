@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [user]);
 
   const logOut = () => {
     setLoader(true);

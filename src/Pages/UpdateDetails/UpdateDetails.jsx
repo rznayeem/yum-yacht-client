@@ -11,6 +11,7 @@ const UpdateDetails = () => {
   let newIngredients = [];
 
   const { user } = useContext(AuthContext);
+  console.log(user);
   const {
     _id,
     foodName,
