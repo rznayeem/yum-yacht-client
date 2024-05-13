@@ -14,11 +14,11 @@ const Login = () => {
   const { signIn, googleLogin, githubLogin, setLoader, loader, user } =
     useContext(AuthContext);
 
-  useEffect(() => {
-    if (user) {
-      navigate(location?.state || '/');
-    }
-  }, [user, navigate, location]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate(location?.state || '/');
+  //   }
+  // }, [user, navigate, location]);
 
   const [showPassword, setShowPassword] = useState(false);
 

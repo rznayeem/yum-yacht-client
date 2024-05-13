@@ -14,11 +14,11 @@ const Register = () => {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      navigate('/');
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate('/');
+  //   }
+  // }, [user, navigate]);
 
   const {
     register,
@@ -57,8 +57,6 @@ const Register = () => {
         }
       });
   };
-
-  if (user || loader) return;
 
   return (
     <div>
