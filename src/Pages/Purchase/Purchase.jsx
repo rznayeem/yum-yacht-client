@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -9,6 +9,19 @@ const Purchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
   const { _id, foodImage, foodName, foodCategory, price, quantity } = foodData;
+
+  const id = useParams().id;
+  console.log(id);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/purchase/${id}?email=${user?.email}`, {
+        withCredentials: true,
+      })
+      .then(res => {
+        console.log(res.data);
+      });
+  }, [id, user]);
 
   const [updatedQuantity, setUpdatedQuantity] = useState(quantity);
 
@@ -48,7 +61,9 @@ const Purchase = () => {
     }).then(result => {
       if (result.isConfirmed) {
         axios
-          .post('http://localhost:5000/purchase', purchasedData)
+          .post('http://localhost:5000/purchase', purchasedData, {
+            withCredentials: true,
+          })
           .then(res => {
             if (res.data.acknowledged) {
               setUpdatedQuantity(remainingQuantity);

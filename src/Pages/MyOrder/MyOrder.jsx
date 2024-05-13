@@ -14,7 +14,9 @@ const MyOrder = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myOrder?email=${user?.email}`)
+      .get(`http://localhost:5000/myOrder?email=${user?.email}`, {
+        withCredentials: true,
+      })
       .then(res => setFoods(res.data));
   }, [user]);
 

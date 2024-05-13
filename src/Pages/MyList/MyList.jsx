@@ -11,7 +11,9 @@ const MyList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myList?email=${user?.email}`)
+      .get(`http://localhost:5000/myList?email=${user?.email}`, {
+        withCredentials: true,
+      })
       .then(res => setFoods(res.data));
   }, [user]);
 
