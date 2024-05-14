@@ -35,9 +35,9 @@ const Nav = () => {
 
   return (
     <div
-      className={`navbar bg-white/[.2] backdrop-blur-sm relative z-50 container mx-auto h-28 ${
+      className={`navbar backdrop-blur-sm relative z-50 container mx-auto h-28 ${
         location.pathname === '/'
-          ? 'text-white lg:rounded-2xl absolute lg:top-12'
+          ? 'text-white bg-black/[.4] border lg:rounded-2xl absolute lg:top-12'
           : 'text-black'
       }`}
     >

@@ -114,7 +114,7 @@ const TopFoods = () => {
         <Zoom className="flex justify-center mt-10">
           <Link
             to={'/allFoods'}
-            className="btn bg-[#ff923e] text-white font-semibold text-xl hover:bg-[#F76F2A]"
+            className="btn bg-[#5DA88A] text-white font-semibold text-xl hover:bg-[#417560]"
           >
             See All Foods
           </Link>

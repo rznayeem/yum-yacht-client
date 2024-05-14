@@ -119,7 +119,7 @@ const Login = () => {
                 <h1 className="text-3xl font-bold pb-4">Welcome Back !</h1>
                 <p>Thank you for being with us. Please log in!</p>
               </div>
-              <div className="w-[70%] mx-auto">
+              <div className="w-[60%] mx-auto">
                 <Lottie animationData={login} />
               </div>
             </div>

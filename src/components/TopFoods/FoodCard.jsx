@@ -23,7 +23,7 @@ const FoodCard = ({ food }) => {
     </div>
   ) : (
     <div>
-      <div className="rounded-3xl shadow-md dark:bg-gray-50 dark:text-gray-800 ">
+      <div className="rounded-3xl bg-[#F1F8EC] shadow-md ">
         <Fade direction="up" className="overflow-hidden rounded-t-3xl">
           <img
             src={foodImage}
@@ -31,7 +31,7 @@ const FoodCard = ({ food }) => {
             className="object-cover object-center w-full rounded-t-3xl h-72 dark:bg-gray-500 transition duration-300 ease-in-out hover:scale-110"
           />
         </Fade>
-        <Zoom className="flex flex-col justify-between p-6 space-y-4 text-center">
+        <Zoom className="flex flex-col justify-between p-6 space-y-4 text-center ">
           <div className="flex justify-center">
             <h4 className="bg-[#EBEBEB] px-2 rounded-md">{foodCategory}</h4>
           </div>
@@ -42,7 +42,7 @@ const FoodCard = ({ food }) => {
           <div className="flex items-center justify-center">
             <Link
               to={`/foodDetails/${_id}`}
-              className="btn w-1/2 p-3 font-bold tracking-wide rounded-full bg-[#ff923e] hover:bg-[#F76F2A] text-white h-auto transition duration-300 ease-in-out hover:scale-110"
+              className="btn w-1/2 p-3 font-bold tracking-wide rounded-full bg-[#5DA88A] hover:bg-[#417560] text-white h-auto transition duration-300 ease-in-out hover:scale-110"
             >
               View Details
             </Link>
