@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -49,10 +50,16 @@ const Testimonial = () => {
           <SwiperSlide key={idx} className="h-full ">
             <div className="my-8 text-white">
               <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
-                <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl ">
-                  {testimonial.feedback}
-                </p>
-                <div className="flex justify-center space-x-3">
+                <Fade direction="down" delay={500}>
+                  <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl ">
+                    {testimonial.feedback}
+                  </p>
+                </Fade>
+                <Fade
+                  direction="up"
+                  delay={500}
+                  className="flex justify-center space-x-3"
+                >
                   <img
                     src={testimonial.image}
                     alt=""
@@ -82,7 +89,7 @@ const Testimonial = () => {
                       </svg>
                     </Link>
                   </div>
-                </div>
+                </Fade>
               </div>
             </div>
           </SwiperSlide>

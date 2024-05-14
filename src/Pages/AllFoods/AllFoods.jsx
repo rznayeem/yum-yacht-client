@@ -32,7 +32,7 @@ const AllFoods = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <div>
         <img className="w-full object-center" src={headerImg} alt="" />
       </div>
@@ -55,7 +55,7 @@ const AllFoods = () => {
             </button>
           </form>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-xl lg:mx-auto md:mx-6 mx-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-xl lg:mx-auto md:mx-6 mx-6 pb-24">
           {loader ? (
             <>
               <div className="flex flex-col gap-4 w-full">

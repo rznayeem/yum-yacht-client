@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import { useCallback, useEffect, useState } from 'react';
 import leftArrow from '../../assets/leftArrow.json';
 import { Fade, Zoom } from 'react-awesome-reveal';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
@@ -68,6 +69,8 @@ const Banner = () => {
           {/* sliders */}
           {carouselImages.map((slide, inx) => (
             <img
+              data-aos="zoom-in"
+              data-aos-duration="1000"
               key={slide}
               src={slide}
               className="min-w-full blur-[2px] bg-black/20 bg-blend-multiply h-[50vh] md:h-[100vh] lg:h-[100vh] object-cover"
@@ -78,14 +81,25 @@ const Banner = () => {
       </div>
       <Fade>
         <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 bg-black/[.5] border-2 rounded-2xl space-y-3">
-          <h1 className="text-6xl font-semibold font-mercellus">
+          <h1
+            data-aos="fade-down"
+            data-aos-duration="1000"
+            className="text-6xl font-semibold font-mercellus"
+          >
             Discover Taste Adventures with <br /> <span>Yum Yacht</span>
           </h1>
-          <p>
-            Embark on a culinary journey like no other with Yum Yacht, where
-            each dish is a destination of flavor.{' '}
-          </p>
-          <button className="btn">All foods</button>
+          <Zoom>
+            <p>
+              Embark on a culinary journey like no other with Yum Yacht, where
+              each dish is a destination of flavor.{' '}
+            </p>
+            <Link
+              to={'/allFoods'}
+              className="btn font-bold tracking-wide rounded-full bg-[#ff923e] hover:bg-[#F76F2A] text-white h-auto"
+            >
+              All foods
+            </Link>
+          </Zoom>
         </div>
       </Fade>
     </div>

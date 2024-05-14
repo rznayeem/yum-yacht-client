@@ -3,7 +3,11 @@ const GalleryCard = ({ userFeedback }) => {
   const { name, image, feedback } = userFeedback;
 
   return (
-    <div className="group relative cursor-pointer w-[400px] h-[270px] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-shadow">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="group relative cursor-pointer w-[400px] h-[270px] rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-shadow"
+    >
       <img
         className="w-[400px] h-[270px] object-cover rounded-2xl group-hover:scale-125 transition-transform duration-500"
         src={image}
