@@ -4,6 +4,7 @@ import header from '../../assets/gallery.png';
 import { useContext, useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -46,7 +47,17 @@ const AddFood = () => {
         `https://assignment-11-yum-yacht-server.vercel.app/all-foods`,
         updatedData
       )
-      .then(res => console.log(res.data));
+      .then(res => {
+        if (res.data.acknowledged) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your food item has been successfully added',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
     console.log(updatedData);
   };
 

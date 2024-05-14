@@ -21,7 +21,7 @@ const Newsletter = () => {
             <p>Note: For New Users Only</p>
           </Zoom>
         </div>
-        <div className="flex flex-col lg:flex-row justify-around items-center p-5 md:p-20 lg:py-20 lg:px-52 lg:m-4 mx-auto lg:-mt-48 space-y-6 sm:px-10 sm:mx-12 lg:rounded-3xl bg-[#F8F0E5]">
+        <div className="flex flex-col lg:flex-row justify-around items-center p-5 md:p-20 lg:py-20 lg:px-52 lg:m-20 mx-auto lg:-mt-48 space-y-6 sm:px-10 sm:mx-12 lg:rounded-3xl bg-[#F8F0E5]">
           <Fade direction="left" className="space-y-2">
             <img
               src="https://orgik-theme.myshopify.com/cdn/shop/files/news_letter.png?v=1637662582"

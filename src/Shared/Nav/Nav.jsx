@@ -9,13 +9,25 @@ const Nav = () => {
   const location = useLocation();
   const links = (
     <>
-      <li className="bg-transparent hover:bg-transparent border-none outline-none shadow-none">
+      <li
+        className={`btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#ffbd2f] text-xl font-medium ${
+          location.pathname === '/' ? 'text-white ' : ''
+        }`}
+      >
         <NavLink to={'/'}>Home</NavLink>
       </li>
-      <li className="bg-transparent hover:bg-transparent border-none outline-none shadow-none">
+      <li
+        className={`btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#ffbd2f] text-xl font-medium ${
+          location.pathname === '/' ? 'text-white ' : ''
+        }`}
+      >
         <NavLink to={'/allFoods'}>All Foods</NavLink>
       </li>
-      <li className="bg-transparent hover:bg-transparent border-none outline-none shadow-none">
+      <li
+        className={`btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#ffbd2f] text-xl font-medium ${
+          location.pathname === '/' ? 'text-white ' : ''
+        }`}
+      >
         <NavLink to={'/gallery'}>Gallery</NavLink>
       </li>
     </>
@@ -49,7 +61,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm text-xl bg-[#FF923E] dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
           >
             {links}
           </ul>
@@ -68,7 +80,7 @@ const Nav = () => {
       </div>
       <div data-aos="fade-down" className="navbar-center hidden lg:flex">
         <ul
-          className="menu menu-horizontal px-1"
+          className="text-xl font-medium bg-transparent flex items-center"
           // style={{
           //   color: `${location.pathname === '/' ? 'white' : 'black'}`,
           // }}

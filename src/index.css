@@ -5,5 +5,9 @@
 @tailwind utilities;
 
 .active {
+  border: none;
   color: #ffbd2f;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 600;
 }

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import leftArrow from '../../assets/leftArrow.json';
 import { Fade, Zoom } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Banner = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
@@ -80,13 +81,16 @@ const Banner = () => {
         </div>
       </div>
       <Fade>
-        <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 bg-black/[.5] border-2 rounded-2xl space-y-3">
+        <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 lg:bg-black/[.5] border-2 rounded-2xl space-y-3">
           <h1
             data-aos="fade-down"
             data-aos-duration="1000"
-            className="text-6xl font-semibold font-mercellus"
+            className="lg:text-6xl text-4xl font-semibold font-mercellus"
           >
-            Discover Taste Adventures with <br /> <span>Yum Yacht</span>
+            Discover Taste Adventures <br /> with{' '}
+            <span className="text-[#FF923E]">
+              <Typewriter loop={5} words={['Yum Yacht']}></Typewriter>
+            </span>
           </h1>
           <Zoom>
             <p>

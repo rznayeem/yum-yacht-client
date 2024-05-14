@@ -57,7 +57,7 @@ const Gallery = () => {
             <Link to={'/allFoods'} className="hover:text-orange-400">
               All
             </Link>
-            /Purchase
+            /Gallery
           </h3>
         </div>
       </div>
@@ -213,18 +213,18 @@ const Gallery = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-screen-xl mx-auto grid gap-8 py-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-screen-xl mx-auto grid gap-8 py-16 grid-cols-1 md:grid-cols-2 ">
           {loader ? (
             <>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
-              <div className="skeleton w-[400px] h-[270px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
+              <div className="skeleton w-full h-[270px] lg:h-[415px]"></div>
             </>
           ) : (
             usersFeedback.map((userFeedback, idx) => (

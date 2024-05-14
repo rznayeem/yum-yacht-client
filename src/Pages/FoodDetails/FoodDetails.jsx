@@ -32,8 +32,8 @@ const FoodDetails = () => {
           </p>
         </div>
       </div>
-      <div className="flex container mx-auto">
-        <div className="w-[50%] relative my-auto rounded-2xl border border-[#FF923E] p-5">
+      <div className="flex flex-col lg:flex-row container mx-auto">
+        <div className="lg:w-[50%] relative my-auto rounded-2xl border border-[#FF923E] p-5">
           <img src={foodImage} alt="" className="rounded-2xl" />
           {quantity === 0 && (
             <h3 className="bg-red-600 text-white p-4 w-28 absolute top-0 left-0 border border-[#FF923E] rounded-tl-2xl">
@@ -41,7 +41,7 @@ const FoodDetails = () => {
             </h3>
           )}
         </div>
-        <div className="w-[50%] m-20 space-y-5 text-[#686464]">
+        <div className="lg:w-[50%] lg:m-20 m-8 space-y-5 text-[#686464]">
           <h1 className="text-4xl  font-bold">{foodName}</h1>
           <h3>
             <span className="text-xl mr-10 font-bold">Price:</span>{' '}

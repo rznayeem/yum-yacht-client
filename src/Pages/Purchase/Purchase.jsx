@@ -109,7 +109,7 @@ const Purchase = () => {
         </div>
       </div>
       <div className="bg-[url('https://yummi-theme.myshopify.com/cdn/shop/files/bg-img-1_1.png?v=1614334735&width=1920')]">
-        <div className="flex flex-col lg:flex-row max-w-screen-xl lg:py-20 mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row max-w-screen-xl lg:py-20 mx-auto">
           <form onSubmit={handleOrder} className="card-body md:w-1/2 mx-auto">
             <div className="form-control">
               <label className="label">
@@ -201,7 +201,7 @@ const Purchase = () => {
               </button>
             </div>
           </form>
-          <div className="w-1/2 my-auto bg-[#FAF0EA] py-20 shadow-md rounded-3xl space-y-12">
+          <div className="lg:w-1/2 my-auto bg-[#FAF0EA] py-20 shadow-md rounded-3xl space-y-12">
             <div className="flex justify-around items-center">
               <div className="flex gap-6 items-center">
                 <img
