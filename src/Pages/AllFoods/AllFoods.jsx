@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import headerImg from '../../assets/all-foods.png';
 import axios from 'axios';
 import AllFoodsCard from './AllFoodsCard';
+import { Helmet } from 'react-helmet';
 
 const AllFoods = () => {
   const [loader, setLoader] = useState(true);
@@ -33,6 +34,9 @@ const AllFoods = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Yum Yacht | All Our Foods</title>
+      </Helmet>
       <div>
         <img className="w-full object-center" src={headerImg} alt="" />
       </div>

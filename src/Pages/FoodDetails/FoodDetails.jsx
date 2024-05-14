@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import header from '../../assets/Breadcrump-Image.jpg';
+import { Helmet } from 'react-helmet';
 
 const FoodDetails = () => {
   const food = useLoaderData();
@@ -16,6 +17,9 @@ const FoodDetails = () => {
   } = food;
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | Food Details</title>
+      </Helmet>
       <div
         className="flex items-center justify-center text-white h-96"
         style={{

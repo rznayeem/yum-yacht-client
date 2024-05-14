@@ -6,6 +6,7 @@ import noData from '../../assets/noData.json';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
+import { Helmet } from 'react-helmet';
 
 const MyList = () => {
   const [loader, setLoader] = useState(true);
@@ -29,6 +30,9 @@ const MyList = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Yum Yacht | My Food List</title>
+      </Helmet>
       <div
         className="h-72 relative object-center overflow-hidden bg-cover bg-center  bg-black/[.5] bg-blend-multiply"
         style={{

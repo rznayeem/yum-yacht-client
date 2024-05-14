@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -72,6 +73,9 @@ const AddFood = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | Add Food</title>
+      </Helmet>
       <div
         className="h-72 relative object-center overflow-hidden bg-cover bg-center  bg-black/[.5] bg-blend-multiply"
         style={{

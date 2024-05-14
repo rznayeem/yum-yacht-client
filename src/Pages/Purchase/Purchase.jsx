@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Purchase = () => {
   const { user } = useContext(AuthContext);
@@ -91,6 +92,9 @@ const Purchase = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | purchase</title>
+      </Helmet>
       <div
         className="h-96 relative object-center overflow-hidden bg-cover bg-center  bg-black/[.5] bg-blend-multiply"
         style={{

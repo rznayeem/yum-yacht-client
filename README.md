@@ -1,8 +1,23 @@
-# React + Vite
+# Yum Yacht
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live-Link: https://yum-yacht.web.app/](https://yum-yacht.web.app/)
 
-Currently, two official plugins are available:
+- This is a website of Restaurant Management & my assignment category 0005
+- Top 6 Food Items: Discover the top 6 mouthwatering food items curated just for
+  you.
+- Detailed Food Information: Get all the details you need about each food item,
+  from ingredients to nutritional information.
+- User can create accounts with email-password, google or github and they can
+  interact with us.
+- User can add new food items if they want from add food item section.
+- user can see their ordered items.
+- user can delete their ordered items if they want.
+- User can update their food item information if they want.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+\*Npm packages that I used :
+
+- a. Lottie React
+- b. React-simple-typewriter
+- c. React Awesome reveal
+- e. aos animation
+- f. react hook form

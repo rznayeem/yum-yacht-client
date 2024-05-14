@@ -5,6 +5,7 @@ import axios from 'axios';
 import GalleryCard from './GalleryCard';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { CiMail } from 'react-icons/ci';
+import { Helmet } from 'react-helmet';
 
 const Gallery = () => {
   const [loader, setLoader] = useState(true);
@@ -44,6 +45,9 @@ const Gallery = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | Our Gallery</title>
+      </Helmet>
       <div
         className="h-96 relative object-center overflow-hidden bg-cover bg-center  bg-black/[.5] bg-blend-multiply"
         style={{

@@ -7,6 +7,7 @@ import login from '../../assets/login2.json';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import header from '../../assets/Breadcrump-Image.jpg';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const location = useLocation();
@@ -91,6 +92,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | Login</title>
+      </Helmet>
       <div className="">
         <div
           className="flex items-center justify-center text-white h-64"

@@ -7,6 +7,7 @@ import registerLottie from '../../assets/register2.json';
 import { AuthContext } from '../../Providers/AuthProvider';
 import toast from 'react-hot-toast';
 import header from '../../assets/Breadcrump-Image.jpg';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -60,6 +61,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Yum Yacht | Register</title>
+      </Helmet>
       <div className="">
         <div
           className="flex items-center justify-center text-white h-64"
