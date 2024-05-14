@@ -3,6 +3,7 @@ import Banner from '../../components/Banner/Banner';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import Testimonial from '../../components/Testimonial/Testimonial';
 import TopFoods from '../../components/TopFoods/TopFoods';
+import Quality from '../../components/Quality/Quality';
 
 const Home = () => {
   return (
@@ -12,7 +13,11 @@ const Home = () => {
       </Helmet>
       <Banner></Banner>
       <TopFoods></TopFoods>
-      <Testimonial></Testimonial>
+      <div>
+        <Testimonial></Testimonial>
+        <div className="-mt-[300px] bg-gradient-to-t from-[#FFE4D9] via-transparent to-transparent h-[300px]"></div>
+      </div>
+      <Quality></Quality>
       <Newsletter></Newsletter>
     </div>
   );

@@ -56,10 +56,10 @@ const Purchase = () => {
       foodId: _id,
     };
     Swal.fire({
-      title: 'Do you want to order this?',
-      icon: 'warning',
+      title: 'Do you want to place this order?',
+      icon: 'question',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#22BB33',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, Confirm my order!',
     }).then(result => {

@@ -92,7 +92,7 @@ const Register = () => {
                   To keep connected with us please provide your personal info .
                 </p>
               </div>
-              <div className="w-[70%] mx-auto">
+              <div className="w-[60%] mx-auto">
                 <Lottie animationData={registerLottie} />
               </div>
             </div>

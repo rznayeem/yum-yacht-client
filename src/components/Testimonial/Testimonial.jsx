@@ -20,9 +20,10 @@ const Testimonial = () => {
 
   return (
     <div
-      className=" py-20 bg-black/[.5] bg-cover bg-blend-multiply"
+      className=" py-20 bg-cover"
       style={{
-        backgroundImage: "url('https://i.imgur.com/QzjRXes.jpeg')",
+        backgroundImage:
+          "url('https://orgik-theme.myshopify.com/cdn/shop/files/testimonial_bg.jpg?v=1637662154')",
         backgroundPosition: 'bottom',
         backgroundRepeat: 'no-repeat',
       }}
@@ -38,6 +39,9 @@ const Testimonial = () => {
           <path d="M415.409,154.914l-2.194-48.054L372.7,80.933,346.768,40.414l-48.055-2.2L256,16.093,213.287,38.219l-48.055,2.2L139.3,80.933,98.785,106.86l-2.194,48.054L74.464,197.628l22.127,42.715,2.2,48.053L139.3,314.323l25.928,40.52,48.055,2.195L256,379.164l42.713-22.126,48.055-2.195,25.928-40.52L413.214,288.4l2.195-48.053,22.127-42.715Zm-31.646,76.949L382,270.377l-32.475,20.78-20.78,32.475-38.515,1.76L256,343.125l-34.234-17.733-38.515-1.76-20.78-32.475L130,270.377l-1.759-38.514L110.5,197.628,128.237,163.4,130,124.88,162.471,104.1l20.78-32.474,38.515-1.76L256,52.132l34.234,17.733,38.515,1.76,20.78,32.474L382,124.88l1.759,38.515L401.5,197.628Z"></path>
         </svg>
       </div>
+      <div>
+        <h1 className="text-5xl text-center">What Our Customers Say</h1>
+      </div>
 
       <Swiper
         loop={true}
@@ -48,8 +52,8 @@ const Testimonial = () => {
       >
         {testimonials.map((testimonial, idx) => (
           <SwiperSlide key={idx} className="h-full ">
-            <div className="my-8 text-white">
-              <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
+            <div className="my-8">
+              <div className="container text-[#5DA88A] flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
                 <Fade direction="down" delay={500}>
                   <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl ">
                     {testimonial.feedback}
@@ -57,7 +61,7 @@ const Testimonial = () => {
                 </Fade>
                 <Fade
                   direction="up"
-                  delay={500}
+                  delay={1000}
                   className="flex justify-center space-x-3"
                 >
                   <img

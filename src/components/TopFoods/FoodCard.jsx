@@ -6,7 +6,7 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 
 const FoodCard = ({ food }) => {
   const { loader } = useContext(AuthContext);
-  const { _id, foodImage, foodCategory, foodName, price } = food;
+  const { _id, foodImage, foodCategory, foodName, price, purchaseCount } = food;
 
   return loader ? (
     <div className="flex flex-col gap-4 w-full">
@@ -23,14 +23,18 @@ const FoodCard = ({ food }) => {
     </div>
   ) : (
     <div>
-      <div className="rounded-3xl bg-[#F1F8EC] shadow-md ">
+      <div className="relative rounded-3xl bg-[#F1F8EC] shadow-md ">
         <Fade direction="up" className="overflow-hidden rounded-t-3xl">
           <img
             src={foodImage}
             alt=""
-            className="object-cover object-center w-full rounded-t-3xl h-72 dark:bg-gray-500 transition duration-300 ease-in-out hover:scale-110"
+            className=" object-cover object-center w-full rounded-t-3xl h-72 dark:bg-gray-500 transition duration-300 ease-in-out hover:scale-110"
           />
         </Fade>
+        <p className="absolute top-3 left-3 bg-[#5DA88A] px-3 rounded-md text-white">
+          {purchaseCount} sold
+        </p>
+
         <Zoom className="flex flex-col justify-between p-6 space-y-4 text-center ">
           <div className="flex justify-center">
             <h4 className="bg-[#EBEBEB] px-2 rounded-md">{foodCategory}</h4>

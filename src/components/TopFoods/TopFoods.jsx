@@ -17,7 +17,7 @@ const TopFoods = () => {
   }, []);
 
   return (
-    <div className="py-16 bg-[url('https://yummi-theme.myshopify.com/cdn/shop/files/bg-img-1_1.png?v=1614334735&width=1920')]">
+    <div className="lg:py-16 bg-[url('https://yummi-theme.myshopify.com/cdn/shop/files/bg-img-1_1.png?v=1614334735&width=1920')]">
       <div className="max-w-screen-xl mx-auto">
         <Fade>
           <div className="text-center space-y-6 my-10">
@@ -29,7 +29,10 @@ const TopFoods = () => {
             </p>
           </div>
         </Fade>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 m-6">
+        <div
+          data-aos="fade-up"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 m-6"
+        >
           {loader ? (
             <>
               <div className="flex flex-col gap-4 w-full">

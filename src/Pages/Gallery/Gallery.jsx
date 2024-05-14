@@ -6,6 +6,7 @@ import GalleryCard from './GalleryCard';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { CiMail } from 'react-icons/ci';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const Gallery = () => {
   const [loader, setLoader] = useState(true);
@@ -40,7 +41,18 @@ const Gallery = () => {
         'https://assignment-11-yum-yacht-server.vercel.app/feedback',
         feedbackData
       )
-      .then(res => console.log(res.data));
+      .then(res => {
+        if (res.data.acknowledged) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'We received your feedback successfully',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setOpenModal(false);
+        }
+      });
   };
 
   return (
