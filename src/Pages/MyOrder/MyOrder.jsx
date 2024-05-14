@@ -86,7 +86,40 @@ const MyOrder = () => {
         </div>
       </div>
       <div className="container h-full my-24 rounded-2xl p-10 shadow-md bg-[#F1F8EC] border mx-auto border-[#5DA88A] overflow-x-auto">
-        {foods.length === 0 ? (
+        {loader ? (
+          <>
+            <div className="container mt-10 w-full bg-white animate-pulse flex justify-center flex-col items-start mx-auto p-6 rounded-md shadow-xl">
+              {/* User profile  Skeleton */}
+              <div className="w-full flex gap-2 items-center">
+                <div className="w-16 h-16 rounded-full bg-gray-300 animate-pulse"></div>
+                <div className="w-[80%]">
+                  <div className="w-[30%] rounded-full bg-gray-300 h-[15px] mb-3"></div>
+                  <div className="w-[40%] rounded-full bg-gray-300 h-[15px]"></div>
+                </div>
+              </div>
+              {/* user post skeleton */}
+              <div className="mt-8 w-full">
+                <div className="w-full rounded-full bg-gray-300 h-[15px] mb-3"></div>
+                <div className="w-[90%] rounded-full bg-gray-300 h-[15px]"></div>
+              </div>
+            </div>
+            <div className="container mt-10 w-full bg-white animate-pulse flex justify-center flex-col items-start mx-auto p-6 rounded-md shadow-xl">
+              {/* User profile  Skeleton */}
+              <div className="w-full flex gap-2 items-center">
+                <div className="w-16 h-16 rounded-full bg-gray-300 animate-pulse"></div>
+                <div className="w-[80%]">
+                  <div className="w-[30%] rounded-full bg-gray-300 h-[15px] mb-3"></div>
+                  <div className="w-[40%] rounded-full bg-gray-300 h-[15px]"></div>
+                </div>
+              </div>
+              {/* user post skeleton */}
+              <div className="mt-8 w-full">
+                <div className="w-full rounded-full bg-gray-300 h-[15px] mb-3"></div>
+                <div className="w-[90%] rounded-full bg-gray-300 h-[15px]"></div>
+              </div>
+            </div>
+          </>
+        ) : foods.length === 0 ? (
           <div className="text-center">
             <h1 className="my-12 text-5xl font-bold">
               Please add some food items
