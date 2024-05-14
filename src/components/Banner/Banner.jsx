@@ -1,4 +1,7 @@
+import Lottie from 'lottie-react';
 import { useCallback, useEffect, useState } from 'react';
+import leftArrow from '../../assets/leftArrow.json';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const Banner = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
@@ -29,58 +32,21 @@ const Banner = () => {
   }, [nextSlider]);
 
   return (
-    <div className="w-full lg:h-[100vh] overflow-hidden  relative -mt-24">
+    <div className="w-full lg:h-[100vh] overflow-hidden  relative -mt-28">
       {/* arrow left */}
       <div className="lg:h-[100vh] md:h-[100vh] sm:h-[50vh]">
         <button
           onClick={prevSlider}
-          className="absolute lg:top-1/2 md:top-1/2 top-1/4 left-3 z-50 flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
+          className="absolute lg:top-1/2 md:top-1/2 top-1/4 left-3 z-50 flex justify-center items-center rounded-full w-12 h-12 md:w-20 md:h-20"
         >
-          <svg
-            className="w-4 h-4 md:w-6 md:h-6 icon"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#000000"
-          >
-            <g strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                fill="#0095FF"
-                d="M685.248 104.704a64 64 0 010 90.496L368.448 512l316.8 316.8a64 64 0 01-90.496 90.496L232.704 557.248a64 64 0 010-90.496l362.048-362.048a64 64 0 0190.496 0z"
-              ></path>
-            </g>
-          </svg>
+          <Lottie animationData={leftArrow}></Lottie>
         </button>
         {/* arrow right */}
         <button
           onClick={nextSlider}
-          className="absolute lg:top-1/2 md:top-1/2 top-1/4 z-[50] right-3  flex justify-center items-center bg-white rounded-full w-6 h-6 md:w-8 md:h-8"
+          className="absolute lg:top-1/2 md:top-1/2 top-1/4 z-[50] right-3  flex justify-center items-center rounded-full w-12 h-12 md:w-20 md:h-20"
         >
-          <svg
-            className="w-4 h-4 md:w-6 md:h-6 icon"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#000000"
-            transform="rotate(180)"
-          >
-            <g strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                fill="#0095FF"
-                d="M685.248 104.704a64 64 0 010 90.496L368.448 512l316.8 316.8a64 64 0 01-90.496 90.496L232.704 557.248a64 64 0 010-90.496l362.048-362.048a64 64 0 0190.496 0z"
-              ></path>
-            </g>
-          </svg>
+          <Lottie className="rotate-180" animationData={leftArrow}></Lottie>
         </button>
         {/* dots */}
         <div className="flex justify-center items-center rounded-full z-50 absolute bottom-4 w-full gap-1">
@@ -104,22 +70,24 @@ const Banner = () => {
             <img
               key={slide}
               src={slide}
-              className="min-w-full bg-black/20 h-[50vh] md:h-[100vh] lg:h-[100vh] object-cover"
+              className="min-w-full blur-[2px] bg-black/20 bg-blend-multiply h-[50vh] md:h-[100vh] lg:h-[100vh] object-cover"
               alt={`Slider - ${inx + 1}`}
             />
           ))}
         </div>
       </div>
-      <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 space-y-3">
-        <h1 className="text-6xl font-semibold font-mercellus">
-          Discover Taste Adventures with <br /> <span>Yum Yacht</span>
-        </h1>
-        <p>
-          Embark on a culinary journey like no other with Yum Yacht, where each
-          dish is a destination of flavor.{' '}
-        </p>
-        <button className="btn">All foods</button>
-      </div>
+      <Fade>
+        <div className="lg:absolute md:absolute top-1/2 left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:-translate-x-1/2 md:-translate-y-1/2 text-center md:text-white lg:text-white p-7 lg:space-y-6 bg-black/[.5] border-2 rounded-2xl space-y-3">
+          <h1 className="text-6xl font-semibold font-mercellus">
+            Discover Taste Adventures with <br /> <span>Yum Yacht</span>
+          </h1>
+          <p>
+            Embark on a culinary journey like no other with Yum Yacht, where
+            each dish is a destination of flavor.{' '}
+          </p>
+          <button className="btn">All foods</button>
+        </div>
+      </Fade>
     </div>
   );
 };

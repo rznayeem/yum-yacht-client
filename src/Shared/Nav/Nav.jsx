@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo2.png';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { IoPersonSharp } from 'react-icons/io5';
@@ -23,14 +23,14 @@ const Nav = () => {
 
   return (
     <div
-      className={`navbar bg-white/[.2] backdrop-blur-sm relative z-50 container mx-auto h-24 ${
+      className={`navbar bg-white/[.2] backdrop-blur-sm relative z-50 container mx-auto h-28 ${
         location.pathname === '/'
           ? 'text-white lg:rounded-2xl absolute lg:top-12'
           : 'text-black'
       }`}
     >
       <div className="navbar-start">
-        <div className="dropdown">
+        <div data-aos="fade-down" className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,11 +54,19 @@ const Nav = () => {
             {links}
           </ul>
         </div>
-        <a className="btn bg-transparent hover:bg-transparent outline-none shadow-none border-none text-xl">
-          <img className="max-h-14" src={logo} alt="Yum Yacht" />
-        </a>
+        <Link
+          to={'/'}
+          className="btn bg-transparent hover:bg-transparent outline-none shadow-none border-none text-xl min-h-0 w-auto h-auto"
+        >
+          <img
+            data-aos="fade-right"
+            className="max-h-16"
+            src={logo}
+            alt="Yum Yacht"
+          />
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div data-aos="fade-down" className="navbar-center hidden lg:flex">
         <ul
           className="menu menu-horizontal px-1"
           // style={{
@@ -68,7 +76,7 @@ const Nav = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div data-aos="fade-left" className="navbar-end">
         {user ? (
           <div className="dropdown  dropdown-hover dropdown-end">
             <div
