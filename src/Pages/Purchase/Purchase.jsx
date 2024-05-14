@@ -193,7 +193,10 @@ const Purchase = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#FF923E] text-white text-xl font-semibold">
+              <button
+                disabled={quantity === 0 ? true : false}
+                className="btn bg-[#FF923E] text-white text-xl font-semibold"
+              >
                 Confirm Your Order
               </button>
             </div>
@@ -217,6 +220,11 @@ const Purchase = () => {
               <h3>Total:</h3>
               <h3>${price}</h3>
             </div>
+            {quantity === 0 && (
+              <h2 className="text-red-600 font-semibold px-20">
+                Item is not available
+              </h2>
+            )}
           </div>
         </div>
       </div>
