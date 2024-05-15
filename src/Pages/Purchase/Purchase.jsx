@@ -9,7 +9,8 @@ import { Helmet } from 'react-helmet';
 const Purchase = () => {
   const { user } = useContext(AuthContext);
   const foodData = useLoaderData();
-  const { _id, foodImage, foodName, foodCategory, price, quantity } = foodData;
+  const { _id, foodImage, foodName, foodCategory, price, quantity, userEmail } =
+    foodData;
 
   const id = useParams().id;
   console.log(id);
@@ -38,9 +39,13 @@ const Purchase = () => {
     const userName = e.target.name.value;
     const newQuantity = parseFloat(e.target.newQuantity.value);
     if (newQuantity > updatedQuantity) {
-      return toast.error('You can not buy more than quantity');
-    } else if (newQuantity <= 0) {
-      return toast.error('Sorry product is unavailable');
+      return toast.error('You can not buy more than quantity!');
+    }
+    if (newQuantity <= 0) {
+      return toast.error('Sorry product is unavailable!');
+    }
+    if (email === userEmail) {
+      return toast.error('Sorry you cannot buy your own products!');
     }
     const remainingQuantity = updatedQuantity - newQuantity;
 
