@@ -3,6 +3,7 @@ import logo from '../../assets/logo2.png';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { IoPersonSharp } from 'react-icons/io5';
+import { FiLogOut } from 'react-icons/fi';
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -152,8 +153,12 @@ const Nav = () => {
                 <hr />
               </div>
               <li>
-                <Link to={'/login'} onClick={() => logOut()}>
-                  Logout
+                <Link
+                  className="text-xl ml-2 mb-2"
+                  to={'/login'}
+                  onClick={() => logOut()}
+                >
+                  Logout <FiLogOut />
                 </Link>
               </li>
             </ul>
