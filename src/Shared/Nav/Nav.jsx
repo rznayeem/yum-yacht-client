@@ -6,7 +6,7 @@ import { IoPersonSharp } from 'react-icons/io5';
 import { FiLogOut } from 'react-icons/fi';
 
 const Nav = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loader } = useContext(AuthContext);
   const location = useLocation();
   const links = (
     <>
@@ -90,7 +90,15 @@ const Nav = () => {
         </ul>
       </div>
       <div data-aos="fade-left" className="navbar-end">
-        {user ? (
+        {loader ? (
+          <div className="flex flex-row-reverse gap-4 items-center">
+            <div className="skeleton w-10 h-10 rounded-full shrink-0"></div>
+            <div className="flex flex-col gap-4">
+              <div className="skeleton h-4 w-20"></div>
+              <div className="skeleton h-4 w-28"></div>
+            </div>
+          </div>
+        ) : user ? (
           <div className="dropdown  dropdown-hover dropdown-end">
             <div
               tabIndex={0}
