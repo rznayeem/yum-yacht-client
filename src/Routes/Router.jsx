@@ -13,6 +13,8 @@ import MyOrder from '../Pages/MyOrder/MyOrder';
 import UpdateDetails from '../Pages/UpdateDetails/UpdateDetails';
 import PrivateRoute from './PrivateRoute';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import Dashboard from '../Pages/Dashboard/Dashboard';
+import AllUsers from '../Pages/Dashboard/components/AllUsers/AllUsers';
 
 const Router = createBrowserRouter([
   {
@@ -94,6 +96,16 @@ const Router = createBrowserRouter([
           fetch(
             `https://assignment-11-yum-yacht-server.vercel.app/foodDetails/${params.id}`
           ),
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'users',
+        element: <AllUsers></AllUsers>,
       },
     ],
   },
