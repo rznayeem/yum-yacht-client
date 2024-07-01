@@ -31,13 +31,15 @@ const Nav = () => {
       >
         <NavLink to={'/gallery'}>Gallery</NavLink>
       </li>
-      <li
-        className={`btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#ffbd2f] text-xl font-medium ${
-          location.pathname === '/' ? 'text-white ' : ''
-        }`}
-      >
-        <NavLink to={'/dashboard/users'}>Dashboard</NavLink>
-      </li>
+      {user && (
+        <li
+          className={`btn h-auto w-auto bg-transparent border-none shadow-none hover:bg-transparent hover:text-[#ffbd2f] text-xl font-medium ${
+            location.pathname === '/' ? 'text-white ' : ''
+          }`}
+        >
+          <NavLink to={'/dashboard/users'}>Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 

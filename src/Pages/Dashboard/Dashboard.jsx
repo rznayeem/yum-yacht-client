@@ -4,9 +4,10 @@ import { IoMenuSharp } from 'react-icons/io5';
 import { MdFeedback, MdPeople } from 'react-icons/md';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import logo from '../../assets/logo2.png';
+import useRole from '../../hooks/useRole';
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [userRole, isLoading] = useRole();
 
   return (
     <div className="flex">
@@ -33,7 +34,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-[#FF923E] text-base-content">
+          <ul className="menu  p-4 w-80 min-h-full bg-[#FF923E] text-[18px] text-white space-y-3">
             {/* Sidebar content here */}
             <li>
               <Link
@@ -48,7 +49,7 @@ const Dashboard = () => {
                 />
               </Link>
             </li>
-            {isAdmin ? (
+            {userRole === 'admin' ? (
               <>
                 <li className="mt-24">
                   <Link
@@ -99,7 +100,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to={'/dashboard/booking'}>
-                    <FaTicket></FaTicket>My Booking
+                    <FaTicket></FaTicket>My Order
                   </NavLink>
                 </li>
               </>
