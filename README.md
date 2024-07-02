@@ -14,6 +14,12 @@
 - user can delete their ordered items if they want.
 - User can update their food item information if they want.
 
+## Technologies Used
+
+- Frontend: React.js, JavaScript, HTML5, CSS3, Tailwind CSS
+- Backend: Node.js, Express.js
+- Database: MongoDB
+
 \*Npm packages that I used :
 
 - a. Lottie React
