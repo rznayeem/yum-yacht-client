@@ -12,7 +12,6 @@ Yum Yacht is a Restaurant Management website designed to streamline and enhance 
   interact with us.
 - User can add new food items if they want from add food item section.
 - user can see their ordered items & user delete their ordered items if they want..
-- User can update their food item information if they want.
 
 ## Technologies Used
 
