@@ -2,6 +2,12 @@
 
 [Live-Link: https://yum-yacht.web.app/](https://yum-yacht.web.app/)
 
+## Overview
+
+Yum Yacht is a Restaurant Management website designed to streamline and enhance the dining experience.This projects offers a wide array of features for both users and administrators. From discovering top food items to detailed food information and user account management, Yum Yacht aims to provide a user-friendly platform for managing restaurant operations and enhancing the culinary experience for all users.
+
+## Features
+
 - This is a website of Restaurant Management & my assignment category 0005
 - Top 6 Food Items: Discover the top 6 mouthwatering food items curated just for
   you.
@@ -20,10 +26,22 @@
 - Backend: Node.js, Express.js
 - Database: MongoDB
 
-\*Npm packages that I used :
+## Npm packages that I used :
 
 - a. Lottie React
 - b. React-simple-typewriter
 - c. React Awesome reveal
 - e. aos animation
 - f. react hook form
+
+## Running Locally
+To clone and run this project locally, follow these steps:
+Prerequisites
+Make sure you have the following installed on your machine:
+- Node.js (includes npm)
+- Git
+Steps
+1. Clone the repository: Open your terminal and run the following command:
+```bash
+# Clone the repository:
+git clone https://github.com/your-username/your-repo-name.git
