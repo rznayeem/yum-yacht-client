@@ -43,5 +43,21 @@ Make sure you have the following installed on your machine:
 Steps
 1. Clone the repository: Open your terminal and run the following command:
 ```bash
-# Clone the repository:
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/rznayeem/yum-yacht-client.git
+```
+2. Navigate to the project directory:
+```bash
+cd your-directory
+```
+
+3. Install dependencies:
+```bash
+npm install
+```
+4. Set up environment variables:
+Create a .env file in the root directory of the project and add the necessary environment variables. Refer to the .env.example file for the required variables.
+
+5. Run the development server:
+```bash
+npm start
+```
